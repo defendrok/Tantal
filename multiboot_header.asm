@@ -5,10 +5,6 @@
 [BITS 32]
 [global start]
 
-;[GLOBAL mboot]                  ; Make 'mboot' accessible from C.
-;[EXTERN code]                   ; Start of the '.text' section.
-;[EXTERN bss]                    ; Start of the .bss section.
-;[EXTERN end]                    ; End of the last loadable section.
 start:
     mov esp, Stack     ; This points the stack to our new stack area
     jmp loop
@@ -42,9 +38,8 @@ mboot:
 ; will insert an 'extern _main', followed by 'call _main', right
 ; before the 'jmp $'.
 loop:
-
-	[extern main]
-    call main
+    [extern Main]
+    call Main
     jmp $
 
 

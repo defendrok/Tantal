@@ -1,4 +1,4 @@
-OUTPUT_FORMAT("binary")
+/*OUTPUT_FORMAT("binary")*/
 ENTRY(start)
 SECTIONS
 {
@@ -23,6 +23,11 @@ SECTIONS
     *(.bss)
     . = ALIGN(4096);
   }
+.eh_frame :
+{
+    *(.eh_frame)
+    *(.comment)
+}
 
   end = .; _end = .; __end = .;
 } 
